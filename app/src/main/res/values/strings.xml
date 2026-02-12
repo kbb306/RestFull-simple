@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RestFull</string>
+    <string name="percent">%</string>
+    <string name="plus">+</string>
+    <string name="additional_alarms">Additional Alarms</string>
+    <string name="add">Add</string>
+    <string name="alarm_name_placeholder">Could not retrieve name</string>
+    <string name="alarm_percent_placeholder">Could not retrieve percentage</string>
+    <string name="editalarm">Edit</string>
+    <string name="deletebutton">DELETE</string>
+</resources>
