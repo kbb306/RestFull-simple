@@ -1,15 +1,11 @@
-package com.example.restfull
+package com.example.restfullsimple
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.SeekBar
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
-import com.example.restfullsimple.RestFullViewModel
 import com.example.restfullsimple.databinding.ActivityMainBinding
 
 

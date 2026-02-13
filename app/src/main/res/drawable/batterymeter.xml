@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/battbackground">
+        <bitmap
+            android:src="@drawable/battempty"
+            android:gravity="center" />
+    </item>
+    <item android:id = "@+id/battprogress">
+        <clip
+            android:clipOrientation="horizontal"
+            android:gravity="left">
+            <bitmap>
+
+            </bitmap>
+        </clip>
+    </item>
+</layer-list>

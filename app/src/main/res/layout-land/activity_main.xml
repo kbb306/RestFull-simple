@@ -24,16 +24,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="209dp"
-            android:layout_height="100dp">
-        </ImageView>
+
         <SeekBar
             android:id="@+id/filler"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="209dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:max="1"
+            android:progressDrawable="@+/drawable/batterymeter"
+            android:splitTrack="false"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
