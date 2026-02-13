@@ -15,6 +15,8 @@ class BatteryListener(context: Context) {
     }
     val level: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
     val scale: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_SCALE, -1) ?: -1
+    val status = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS,-1) ?: -1
+    val isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING
 
     @RequiresApi(Build.VERSION_CODES.P)
     val fullTime: Long = battMan.computeChargeTimeRemaining() // May not autoupdate
@@ -29,7 +31,7 @@ class BatteryListener(context: Context) {
     fun getTime (percent: Percent) : Int? {
 
         val timeToTarget = when{
-            per == null -> return per
+            per == null -> null
             else -> {
                 val notNull : Int = per!!
                 (percent.threshold?.minus(notNull)?.div((1-notNull))?.times(fullTime))?.toInt()
