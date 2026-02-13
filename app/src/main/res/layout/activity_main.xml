@@ -29,7 +29,7 @@
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="209dp"
             android:layout_height="match_parent"
-            android:max="1"
+            android:max="5"
             android:progressDrawable="@drawable/battempty"
             android:splitTrack="false"/>
         <LinearLayout
