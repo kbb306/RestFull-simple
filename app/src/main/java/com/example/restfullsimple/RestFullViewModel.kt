@@ -1,27 +1,19 @@
 package com.example.restfullsimple
 import android.app.Application
-import androidx.lifecycle.ViewModel
-import android.net.Uri
-import androidx.lifecycle.MutableLiveData
-import android.content.Context
+
 import android.os.Build
 import androidx.annotation.RequiresApi
-import kotlin.math.round
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.map
-import java.util.Calendar
-import kotlin.collections.map
+
 
 class RestFullViewModel(application: Application) : AndroidViewModel(application) {
-    val model = Percent("Default",100)
+    val model = Percent(100)
     val batt = BatteryListener(application.applicationContext)
 
     fun percent(percent : Int) {
         model.threshold = percent
     }
-    fun name(name : String) {
-        model.name = name
-    }
+
 
     fun display(): String {
         val string = when {
@@ -42,7 +34,10 @@ class RestFullViewModel(application: Application) : AndroidViewModel(application
             time == null -> "NaN"
             else -> (time.rem(60)).times(60).toString()
         }
-        return "Set a timer for $hour:$minute"
+        return when{
+            batt.isCharging -> "Set a timer for $hour:$minute"
+            else -> "Cannot use when phone is not charging"
+        }
 
     }
 
