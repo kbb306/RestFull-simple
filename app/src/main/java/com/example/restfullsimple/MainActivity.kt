@@ -1,4 +1,6 @@
 package com.example.restfullsimple
+import android.graphics.Color
+import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -18,13 +20,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.filler.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        val percentbox = binding.percentbox
+        val filler = binding.filler
+        filler.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: SeekBar?,
                 progress: Int,
                 fromUser: Boolean
             ) {
-                viewModel.percent(progress)
+                val percent = when{
+                    progress >= filler.max -> 100/1
+                    else -> 100/(filler.max -progress)
+                }
+                viewModel.percent(percent)
+                percentbox.text = Editable.Factory.getInstance().newEditable(viewModel.display())
+                val color = when {
+                    progress <= 1 -> Color.RED
+                    progress <= 2 -> Color.YELLOW
+                    else -> Color.GREEN
+                }
+                val fore = ((seekBar?.progressDrawable ?: return  ) as LayerDrawable).findDrawableByLayerId(android.R.id.progress)
+                fore.setTint(color)
+
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -34,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        binding.percentbox.text = Editable.Factory.getInstance().newEditable(viewModel.display())
         binding.output?.text = viewModel.output()
     }
 }
