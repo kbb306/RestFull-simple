@@ -14,16 +14,10 @@ class RestFullViewModel(application: Application) : AndroidViewModel(application
         model.threshold = percent
     }
 
-
-    fun display(): String {
-        val string = when {
-            model.threshold == null -> "Err"
-            else -> model.threshold.toString()
-        }
-        return string
+    fun getPer(): Int {
+        return model.threshold
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     fun output() : String{
         val time = batt.getTime(model)
         val hour =  when {

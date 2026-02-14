@@ -10,12 +10,12 @@ import android.widget.SeekBar
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import com.example.restfullsimple.databinding.ActivityMainBinding
-
-
 class MainActivity : AppCompatActivity() {
+    private val BOX_KEY = "PERCENT"
+    private val SEEK_KEY = "SEEK"
+    private val RESULT_KEY = "RESULT"
     private lateinit var binding: ActivityMainBinding
     private val viewModel: RestFullViewModel by viewModels()
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,19 +23,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         val percentbox = binding.percentbox
         val filler = binding.filler
+        savedInstanceState?.let {
+            percentbox.text = Editable.Factory.getInstance().newEditable(savedInstanceState.getInt(BOX_KEY).toString())
+            filler.progress = savedInstanceState.getInt(SEEK_KEY)
+            binding.output.text = savedInstanceState.getString(RESULT_KEY)
+        }
         filler.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: SeekBar?,
                 progress: Int,
                 fromUser: Boolean
             ) {
-                val percent = when{
-                    progress <= 0 -> 0
-                    progress >= filler.max -> 100/1
-                    else -> 100/(filler.max -progress)
-                }
+                val percent = progress * 20
                 viewModel.percent(percent)
-                percentbox.text = Editable.Factory.getInstance().newEditable(viewModel.display())
+                percentbox.text = Editable.Factory.getInstance().newEditable(viewModel.getPer().toString())
                 val color = when {
                     progress <= 1 -> Color.RED
                     progress <= 2 -> Color.YELLOW
@@ -83,6 +84,14 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.output.text = viewModel.output()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(BOX_KEY,viewModel.getPer())
+        outState.putInt(SEEK_KEY,viewModel.getPer()/20)
+        outState.putString(RESULT_KEY,viewModel.output())
+
     }
 }
 
