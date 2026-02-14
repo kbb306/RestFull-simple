@@ -8,4 +8,5 @@
     <string name="alarm_percent_placeholder">Could not retrieve percentage</string>
     <string name="editalarm">Edit</string>
     <string name="deletebutton">DELETE</string>
+    <string name="output_header">Time to set</string>
 </resources>

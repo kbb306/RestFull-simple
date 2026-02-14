@@ -4,6 +4,7 @@ import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.SeekBar
 import androidx.activity.viewModels
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
 
@@ -52,7 +54,35 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        binding.output?.text = viewModel.output()
+        percentbox.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                val input = s.toString().toInt()
+                val num = when {
+                    input <= 100 -> input
+                    else -> 100
+                }
+                viewModel.percent(num)
+            }
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+            }
+
+        })
+
+        binding.output.text = viewModel.output()
     }
 }
 

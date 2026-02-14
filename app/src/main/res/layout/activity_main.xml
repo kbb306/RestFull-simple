@@ -24,31 +24,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <SeekBar
             android:id="@+id/filler"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="209dp"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:max="5"
-            android:progressDrawable="@drawable/battempty"
+            android:progressDrawable="@drawable/batterymeter"
             android:splitTrack="false"/>
-        <LinearLayout
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/percentbox"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:inputType="number"
+            />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/percentbox"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:inputType="number"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/percent"
-                android:textSize="25sp"/>
-        </LinearLayout>
+            android:text="@string/percent"
+            android:textSize="25sp"/>
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/output_header"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
+
+
 </LinearLayout>
