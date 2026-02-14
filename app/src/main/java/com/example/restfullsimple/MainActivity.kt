@@ -96,7 +96,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
+        percentbox.setText(viewModel.getPer())
+        filler.progress = viewModel.getPer()/20
         binding.output.text = viewModel.output()
     }
 
