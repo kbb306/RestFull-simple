@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val percentbox = binding.percentbox
         val filler = binding.filler
 
-        percentbox.setText(viewModel.getPer())
+        percentbox.setText(viewModel.getPer().toString())
         filler.progress = viewModel.getPer()/20
 
         savedInstanceState?.let {
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 val instring = s.toString()
                 if (instring.isEmpty()) {return}
-                val input = instring.toIntOrNull() ?: -1
+                val input = instring.toIntOrNull() ?: 0
                 val num = when {
                     input <= 100 -> input
                     else -> 100
