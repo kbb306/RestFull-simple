@@ -23,21 +23,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         val percentbox = binding.percentbox
         val filler = binding.filler
+
         savedInstanceState?.let {
-            percentbox.text = Editable.Factory.getInstance().newEditable(savedInstanceState.getInt(BOX_KEY).toString())
+            percentbox.setText(savedInstanceState.getInt(BOX_KEY).toString())
             filler.progress = savedInstanceState.getInt(SEEK_KEY)
             binding.output.text = savedInstanceState.getString(RESULT_KEY)
         }
+
         filler.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: SeekBar?,
                 progress: Int,
                 fromUser: Boolean
             ) {
+                if(fromUser){
                 val percent = progress * 20
                 viewModel.percent(percent)
-                percentbox.text = Editable.Factory.getInstance().newEditable(viewModel.getPer().toString())
+                }
+
+                val newText = viewModel.getPer().toString()
+                if (percentbox.text.toString() != newText) {
+                    percentbox.setText(newText)
+                }
                 val color = when {
+                    progress == 0 -> Color.GRAY
                     progress <= 1 -> Color.RED
                     progress <= 2 -> Color.YELLOW
                     else -> Color.GREEN
@@ -57,12 +66,17 @@ class MainActivity : AppCompatActivity() {
 
         percentbox.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                val input = s.toString().toInt()
+                val instring = s.toString()
+                if (instring.isEmpty()) {return}
+                val input = instring.toIntOrNull() ?: -1
                 val num = when {
                     input <= 100 -> input
                     else -> 100
                 }
-                viewModel.percent(num)
+                if (num != viewModel.getPer()) {
+                    viewModel.percent(num)
+                    filler.progress = num / 20
+                }
             }
 
             override fun beforeTextChanged(
