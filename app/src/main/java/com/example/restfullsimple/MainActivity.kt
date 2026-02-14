@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         val percentbox = binding.percentbox
         val filler = binding.filler
 
+        percentbox.setText(viewModel.getPer())
+        filler.progress = viewModel.getPer()/20
+
         savedInstanceState?.let {
             percentbox.setText(savedInstanceState.getInt(BOX_KEY).toString())
             filler.progress = savedInstanceState.getInt(SEEK_KEY)
@@ -45,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 if (percentbox.text.toString() != newText) {
                     percentbox.setText(newText)
                 }
+                updateOut()
                 val color = when {
                     progress == 0 -> Color.GRAY
                     progress <= 1 -> Color.RED
@@ -77,6 +81,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.percent(num)
                     filler.progress = num / 20
                 }
+                updateOut()
             }
 
             override fun beforeTextChanged(
@@ -96,9 +101,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-        percentbox.setText(viewModel.getPer())
-        filler.progress = viewModel.getPer()/20
-        binding.output.text = viewModel.output()
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -107,6 +110,10 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(SEEK_KEY,viewModel.getPer()/20)
         outState.putString(RESULT_KEY,viewModel.output())
 
+    }
+
+    fun updateOut() {
+        binding.output.text = viewModel.output()
     }
 }
 
