@@ -19,18 +19,16 @@ class RestFullViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun output() : String{
-        val time = batt.getTime(model)
-        val hour =  when {
-            time == null -> "Nan"
-            else -> time.div(60).toString()
-        }
-        val minute = when {
-            time == null -> "NaN"
-            else -> (time.rem(60)).times(60).toString()
-        }
-        return when{
-            batt.isCharging -> "Set a timer for $hour:$minute"
-            else -> "Cannot use when phone is not charging"
+        val time = batt.getTime(model.threshold)
+        return when {
+            time == null -> "Can't get value (Are you sure you're plugged in?"
+            time == 0.toLong() -> "Your battery is fully charged already!"
+            else -> {
+                val seconds = time/1000
+                val minutes = (seconds % 3600) * 60
+                val hours = seconds/3600
+                "Set a timer for $hours:$minutes"
+            }
         }
 
     }

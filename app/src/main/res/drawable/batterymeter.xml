@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/battbackground">
+    <item android:id="@android:id/background">
         <bitmap
             android:src="@drawable/battempty"
             android:gravity="center" />
     </item>
-    <item android:id = "@+id/battprogress">
+    <item android:id = "@android:id/progress">
         <clip
             android:clipOrientation="horizontal"
             android:gravity="left">
-            <bitmap>
-
-            </bitmap>
+            <bitmap
+                android:src="@drawable/battprogress"
+                android:gravity="center"/>
         </clip>
     </item>
 </layer-list>

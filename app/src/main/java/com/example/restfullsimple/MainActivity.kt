@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         val percentbox = binding.percentbox
         val filler = binding.filler
+        val fore = ((filler.progressDrawable ?: return  ) as LayerDrawable).findDrawableByLayerId(android.R.id.progress)
+        fore.setTint(Color.GREEN)
 
         percentbox.setText(viewModel.getPer().toString())
         filler.progress = viewModel.getPer()/20
@@ -55,7 +57,6 @@ class MainActivity : AppCompatActivity() {
                     progress <= 2 -> Color.YELLOW
                     else -> Color.GREEN
                 }
-                val fore = ((seekBar?.progressDrawable ?: return  ) as LayerDrawable).findDrawableByLayerId(android.R.id.progress)
                 fore.setTint(color)
 
             }
