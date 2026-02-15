@@ -24,13 +24,13 @@ fun isCharging() : Boolean {
         val scale: Int = batteryStatus()?.getIntExtra(BatteryManager.EXTRA_SCALE, -1) ?: -1
         return when {
             level == -1 || scale == -1 -> null
-            else -> level / scale * 100
+            else -> (level * 100) / scale
         }
     }
 
     fun fullOrNull() : Long? {
         val battMan = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-        val fullTime: Long = battMan.computeChargeTimeRemaining() // May not autoupdate
+        val fullTime: Long = battMan.computeChargeTimeRemaining()
         return when {
             fullTime > 0 -> fullTime
             else -> null
