@@ -25,7 +25,7 @@ class RestFullViewModel(application: Application) : AndroidViewModel(application
             time == 0.toLong() -> "Your battery is already charged beyond this point!"
             else -> {
                 val seconds = time/1000
-                val minutes = (seconds % 3600) * 60
+                val minutes = (seconds % 3600) / 60
                 val hours = seconds/3600
                 "Set a timer for $hours:$minutes"
             }
