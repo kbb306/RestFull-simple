@@ -42,7 +42,8 @@
             android:layout_height="120dp"
             android:max="5"
             android:progressDrawable="@drawable/batterymeter"
-            android:splitTrack="false" />
+            android:splitTrack="false"
+            android:tickMark="@null"/>
 
 
 
