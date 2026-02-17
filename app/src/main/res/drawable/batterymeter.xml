@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background"
-        android:drawable="@drawable/ic_battery_outline">
-
+        android:drawable="@drawable/batteryframevlarge">
     </item>
     <item android:id = "@android:id/progress">
         <clip
             android:clipOrientation="horizontal"
-            android:gravity="left">
-            android:drawable="@drawable/ic_battery_fill"
+            android:gravity="left"
+            android:drawable="@drawable/batteryfullvlarge">
         </clip>
     </item>
 </layer-list>

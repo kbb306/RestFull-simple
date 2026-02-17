@@ -10,9 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="50dp" />
+
         <TextView
             android:id="@+id/titleBar"
             android:layout_width="match_parent"
@@ -24,7 +26,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="28dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -36,11 +38,11 @@
         <SeekBar
             android:id="@+id/filler"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="209dp"
-            android:layout_height="80dp"
+            android:layout_width="157dp"
+            android:layout_height="120dp"
             android:max="5"
             android:progressDrawable="@drawable/batterymeter"
-            android:splitTrack="false"/>
+            android:splitTrack="false" />
 
 
 
