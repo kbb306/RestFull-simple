@@ -23,8 +23,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         val percentbox = binding.percentbox
         val filler = binding.filler
-        val fore = ((filler.progressDrawable ?: return  ) as LayerDrawable).findDrawableByLayerId(android.R.id.progress)
-        fore.setTint(Color.GREEN)
+        val battery = binding.attery
+        battery.setImageResource(R.drawable.battfill6_foreground)
+        battery.setColorFilter(Color.GREEN)
 
         percentbox.setText(viewModel.getPer().toString())
         filler.progress = viewModel.getPer()/20
@@ -57,7 +58,18 @@ class MainActivity : AppCompatActivity() {
                     progress <= 2 -> Color.YELLOW
                     else -> Color.GREEN
                 }
-                fore.setTint(color)
+
+                val img = when {
+                    progress == 0 -> R.drawable.battfil0_foreground
+                    progress == 1 -> R.drawable.battfil1_foreground
+                    progress == 2 -> R.drawable.battfill2_foreground
+                    progress == 3 -> R.drawable.battfill3_foreground
+                    progress == 4 -> R.drawable.battfill4_foreground
+                    progress == 5 -> R.drawable.battfill6_foreground
+                    else -> R.drawable.battfillelse_foreground
+                }
+                battery.setImageResource(img)
+                battery.setColorFilter(color)
 
             }
 
