@@ -22,7 +22,8 @@
             android:layout_gravity="center"
             android:textAlignment="center"
             android:text="@string/app_name"
-            android:textSize="35sp"/>
+            android:textSize="35sp"
+            android:textColor="@color/purple"/>
 
         <Space
             android:layout_width="match_parent"
@@ -81,7 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/output_header"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:textColor="@color/purple"/>
 
     <TextView
         android:id="@+id/output"
