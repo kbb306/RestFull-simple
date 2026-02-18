@@ -44,7 +44,7 @@
             android:max="5"
             android:progressDrawable="@drawable/batterymeter"
             android:splitTrack="false"
-            android:tickMark="@null"/>
+            app:tickMark="@android:color/transparent"/>
 
 
 
@@ -73,18 +73,43 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/output_header"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:textColor="@color/purple"/>
+
+    <Space
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp" />
+
+    <Space
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recalculate"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center_vertical"
+        />
+
+</LinearLayout>
+
+
 
 
 </LinearLayout>

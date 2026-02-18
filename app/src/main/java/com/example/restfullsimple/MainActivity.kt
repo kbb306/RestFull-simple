@@ -102,7 +102,9 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
+        binding.recalc?.setOnClickListener {
+            updateOut()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
