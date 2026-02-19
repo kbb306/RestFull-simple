@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.SeekBar
 import androidx.activity.viewModels
@@ -102,8 +103,12 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-        binding.recalc?.setOnClickListener {
+        binding.recalc?.setOnClickListener { view : View ->
             updateOut()
+        }
+
+        binding.reset.setOnClickListener { view  : View ->
+            filler.progress = 5
         }
     }
 
