@@ -74,14 +74,15 @@
         android:id="@+id/reset"
         android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:text="@string/reset" />
+        android:text="@string/reset"
+        android:backgroundTint="@color/purple"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
 <LinearLayout
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="40dp"
     android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
@@ -106,12 +107,12 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recalculate"
+        android:layout_height="40dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:gravity="center_vertical"
-        />
+        android:backgroundTint="@color/purple"
+        android:layout_gravity="center"
+        android:text="@string/recalculate" />
 
 </LinearLayout>
 

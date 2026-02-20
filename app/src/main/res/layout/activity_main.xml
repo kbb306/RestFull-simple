@@ -79,7 +79,8 @@
         android:id="@+id/reset"
         android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:text="@string/reset" />
+        android:text="@string/reset"
+        android:backgroundTint="@color/purple"/>
 
     <Space
         android:layout_width="match_parent"
@@ -102,7 +103,8 @@
         android:id="@+id/recalc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recalculate"/>
+        android:text="@string/recalculate"
+        android:backgroundTint="@color/purple"/>
 
 
 </LinearLayout>
