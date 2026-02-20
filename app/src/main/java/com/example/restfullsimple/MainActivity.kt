@@ -42,10 +42,10 @@ class MainActivity : AppCompatActivity() {
                 progress: Int,
                 fromUser: Boolean
             ) {
-
+                if(fromUser){
                 val percent = progress * 20
                 viewModel.percent(percent)
-
+                }
 
                 val newText = viewModel.getPer().toString()
                 if (percentbox.text.toString() != newText) {
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.reset.setOnClickListener { view  : View ->
             filler.progress = 5
-
+            percentbox.setText("100")
         }
     }
 
