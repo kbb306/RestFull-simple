@@ -27,7 +27,7 @@ class RestFullViewModel(application: Application) : AndroidViewModel(application
                 val seconds = time/1000
                 val minutes = (seconds % 3600) / 60
                 val hours = seconds/3600
-                "Set a timer for $hours:$minutes"
+                "Set a timer for %d:%02d".format(hours,minutes)
             }
         }
 
