@@ -44,26 +44,23 @@
     <TextView
         android:id="@+id/percent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
+        android:layout_height="0dp"
         android:text="@string/percent"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/timeToSet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/anchor"
+        app:layout_constraintBottom_toBottomOf="@id/percentbox"
+        app:layout_constraintTop_toTopOf="@id/percentbox"
+        tools:layout_editor_absoluteY="267dp" />
 
     <EditText
         android:id="@+id/percentbox"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginTop="16dp"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/percent"
-        app:layout_constraintHorizontal_bias="0.989"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filler" />
+        app:layout_constraintTop_toBottomOf="@+id/filler"
+        app:layout_constraintEnd_toStartOf="@id/anchor"
+        tools:layout_editor_absoluteX="186dp" />
 
     <Button
         android:id="@+id/reset"
@@ -106,5 +103,12 @@
         app:layout_constraintTop_toBottomOf="@+id/titleBar"
         app:layout_constraintVertical_bias="0.0"
         app:tickMark="@android:color/transparent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/anchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

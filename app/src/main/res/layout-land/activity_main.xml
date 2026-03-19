@@ -12,10 +12,11 @@
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/purple"
         android:text="@string/recalculate"
+        app:layout_constraintTop_toTopOf="@id/hAnchor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.403"
-        app:layout_constraintStart_toEndOf="@+id/output" />
+        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintStart_toEndOf="@+id/anchor" />
 
     <Button
         android:id="@+id/reset"
@@ -32,13 +33,13 @@
         android:id="@+id/timeToSet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="48dp"
         android:text="@string/output_header"
         android:textColor="@color/purple"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/output" />
+        app:layout_constraintEnd_toStartOf="@+id/anchor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/hAnchor"
+        app:layout_constraintHorizontal_bias=".721"/>
 
     <TextView
         android:id="@+id/output"
@@ -48,7 +49,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reset" />
+        app:layout_constraintTop_toBottomOf="@+id/reset"
+        tools:text="4:45"/>
 
     <EditText
         android:id="@+id/percentbox"
@@ -57,20 +59,19 @@
         android:layout_marginStart="352dp"
         android:layout_marginTop="24dp"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/anchor"
         app:layout_constraintTop_toBottomOf="@+id/filler" />
 
     <TextView
         android:id="@+id/percent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="0dp"
         android:text="@string/percent"
         android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/anchor"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/percentbox"
-        app:layout_constraintTop_toBottomOf="@+id/filler" />
+        app:layout_constraintTop_toTopOf="@id/percentbox"
+        app:layout_constraintBottom_toBottomOf="@id/percentbox"/>
 
     <TextView
         android:id="@+id/titleBar"
@@ -99,4 +100,18 @@
         app:layout_constraintBottom_toTopOf="@id/percentbox"
         app:tickMark="@android:color/transparent"
         tools:layout_editor_absoluteY="89dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/anchor"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hAnchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".79"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
