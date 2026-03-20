@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="@id/hAnchor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toEndOf="@+id/anchor" />
 
     <Button
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toStartOf="@+id/anchor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/hAnchor"
-        app:layout_constraintHorizontal_bias=".721"/>
+        app:layout_constraintHorizontal_bias=".45"/>
 
     <TextView
         android:id="@+id/output"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reset"
-        tools:text="4:45"/>
+        tools:text="Set a timer for 4:45"/>
 
     <EditText
         android:id="@+id/percentbox"
