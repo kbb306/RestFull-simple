@@ -21,8 +21,8 @@ class RestFullViewModel(application: Application) : AndroidViewModel(application
     fun output() : String{
         val time = batt.getTime(model.threshold)
         return when {
-            time == null -> "Can't get value (Are you sure you're plugged in?)"
-            time == 0.toLong() -> "Your battery is already charged beyond this point!"
+            time == null -> "Can't get value!"
+            time == 0.toLong() -> "Already charged beyond value!"
             else -> {
                 val seconds = time/1000
                 val minutes = (seconds % 3600) / 60
